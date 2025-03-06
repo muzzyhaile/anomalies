@@ -12,9 +12,6 @@ import { Glow } from "../ui/glow";
 
 interface PricingPlan {
   name: string;
-  price: string;
-  yearlyPrice: string;
-  period: string;
   features: string[];
   description: string;
   buttonText: string;
@@ -30,16 +27,10 @@ interface PricingProps {
 
 export function Pricing({
   plans,
-  title = "Subscription Pricing - Costs Per Usage",
-  description = "Choose the plan that fits your needs. Scale as you grow.",
+  title = "Flexible Pricing Options",
+  description = "Contact us for custom pricing tailored to your specific needs.",
 }: PricingProps) {
-  const [isMonthly, setIsMonthly] = useState(true);
   const isDesktop = useMediaQuery("(min-width: 768px)");
-  const switchRef = useRef<HTMLButtonElement>(null);
-
-  const handleToggle = (checked: boolean) => {
-    setIsMonthly(!checked);
-  };
 
   return (
     <div className="container py-20 relative">
@@ -103,21 +94,6 @@ export function Pricing({
               <p className="text-base font-semibold text-muted-foreground">
                 {plan.name}
               </p>
-              <div className="mt-6 flex items-center justify-center gap-x-2">
-                <span className="text-5xl font-bold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-                  {isMonthly ? plan.price : plan.yearlyPrice}
-                </span>
-                {plan.period !== "Next 3 months" && (
-                  <span className="text-sm font-semibold leading-6 tracking-wide text-muted-foreground">
-                    / {plan.period}
-                  </span>
-                )}
-              </div>
-
-              <p className="text-xs leading-5 text-muted-foreground">
-                custom pricing available
-              </p>
-
               <ul className="mt-5 gap-2 flex flex-col">
                 {plan.features.map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-2">

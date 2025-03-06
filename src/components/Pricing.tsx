@@ -3,9 +3,6 @@ import { Pricing as PricingComponent } from "./blocks/pricing";
 const pricingPlans = [
   {
     name: "FREE FOR TESTING",
-    price: "Contact Us",
-    yearlyPrice: "Contact Us",
-    period: "per month",
     features: [
       "10,000 datapoints",
       "Basic support",
@@ -19,9 +16,6 @@ const pricingPlans = [
   },
   {
     name: "PREMIUM",
-    price: "Contact Us",
-    yearlyPrice: "Contact Us",
-    period: "per month",
     features: [
       "1,000,000 datapoints per usage",
       "300 uses included",
@@ -36,9 +30,6 @@ const pricingPlans = [
   },
   {
     name: "ENTERPRISE",
-    price: "Contact Us",
-    yearlyPrice: "Contact Us",
-    period: "per month",
     features: [
       "On-premises deployment",
       "Secured defense facilities",
