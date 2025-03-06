@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import * as React from "react";
+import { useEffect } from "react";
 import { Button } from "./button";
 import { motion } from "framer-motion";
 import { Checkbox } from "./checkbox";
@@ -13,15 +14,15 @@ interface CookieSettings {
 }
 
 export function CookieBanner() {
-  const [isVisible, setIsVisible] = useState(false);
-  const [showDetails, setShowDetails] = useState(false);
-  const [settings, setSettings] = useState<CookieSettings>({
+  const [isVisible, setIsVisible] = React.useState(false);
+  const [showDetails, setShowDetails] = React.useState(false);
+  const [settings, setSettings] = React.useState<CookieSettings>({
     necessary: true, // Always true as these are essential
     analytics: false,
     marketing: false,
   });
 
-  useEffect(() => {
+  React.useEffect(() => {
     // Check if user has already made a choice
     const cookieChoice = localStorage.getItem("cookieSettings");
     if (!cookieChoice) {
