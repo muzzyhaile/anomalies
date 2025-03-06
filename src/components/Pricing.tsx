@@ -3,8 +3,8 @@ import { Pricing as PricingComponent } from "./blocks/pricing";
 const pricingPlans = [
   {
     name: "FREE FOR TESTING",
-    price: "0",
-    yearlyPrice: "0",
+    price: "Contact Us",
+    yearlyPrice: "Contact Us",
     period: "per month",
     features: [
       "10,000 datapoints",
@@ -19,8 +19,8 @@ const pricingPlans = [
   },
   {
     name: "PREMIUM",
-    price: "€100",
-    yearlyPrice: "€80",
+    price: "Contact Us",
+    yearlyPrice: "Contact Us",
     period: "per month",
     features: [
       "1,000,000 datapoints per usage",
@@ -30,14 +30,14 @@ const pricingPlans = [
       "Email support"
     ],
     description: "For businesses with moderate data needs",
-    buttonText: "Subscribe Now",
+    buttonText: "Contact Us",
     href: "#",
     isPopular: true,
   },
   {
     name: "ENTERPRISE",
-    price: "$K",
-    yearlyPrice: "$K",
+    price: "Contact Us",
+    yearlyPrice: "Contact Us",
     period: "per month",
     features: [
       "On-premises deployment",
@@ -57,8 +57,8 @@ const Pricing = () => {
   return (
     <PricingComponent 
       plans={pricingPlans}
-      title="Subscription Pricing - Costs Per Usage"
-      description="Choose the plan that fits your needs. Scale as you grow."
+      title="Flexible Pricing Options"
+      description="Contact us for custom pricing tailored to your specific needs. We offer flexible plans that scale with your business."
     />
   );
 };

@@ -77,7 +77,7 @@ const Index = () => {
         <Glow variant="center" className="opacity-30" />
       </section>
 
-      {/* Founders Section */}
+      {/* Founders Section - Commented out as requested
       <section className="py-20 bg-background/50 backdrop-blur-sm relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -178,6 +178,7 @@ const Index = () => {
         </div>
         <Glow variant="center" className="opacity-30" />
       </section>
+      */}
 
       <Pricing />
 
