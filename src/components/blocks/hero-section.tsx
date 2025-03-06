@@ -128,7 +128,7 @@ export function HeroSection({
               size="small"
             >
               <Mockup type="responsive">
-                <div className="relative">
+                <div className="relative z-20">
                   <video
                     ref={videoRef}
                     className="w-full h-full object-cover"
