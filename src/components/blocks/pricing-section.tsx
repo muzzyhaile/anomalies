@@ -86,7 +86,7 @@ const licensingOptions = [
 export function PricingSection() {
   return (
     <section id="pricing" className="bg-background py-20 relative overflow-hidden">
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="mx-auto relative z-10 max-w-7xl w-full px-4">
         <div className="text-center mb-12">
           <h2 className="relative z-10 inline-block animate-appear bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-4xl font-semibold leading-tight text-transparent drop-shadow-2xl sm:text-5xl mb-4">
             Subscription Pricing - Costs Per Usage
@@ -96,7 +96,7 @@ export function PricingSection() {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 max-w-5xl mx-auto w-full">
           {pricingPlans.map((plan, index) => (
             <motion.div
               key={index}
@@ -150,7 +150,7 @@ export function PricingSection() {
           ))}
         </div>
 
-        <div className="max-w-4xl mx-auto bg-card/50 backdrop-blur-sm rounded-3xl p-8 border border-border/10 relative mb-12">
+        <div className="max-w-4xl w-full mx-auto bg-card/50 backdrop-blur-sm rounded-3xl p-8 border border-border/10 relative mb-12">
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-2xl font-semibold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent mb-4">
@@ -179,7 +179,7 @@ export function PricingSection() {
           </div>
         </div>
 
-        <div className="max-w-4xl mx-auto bg-card/50 backdrop-blur-sm rounded-3xl p-8 border border-border/10 relative">
+        <div className="max-w-4xl w-full mx-auto bg-card/50 backdrop-blur-sm rounded-3xl p-8 border border-border/10 relative">
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-2xl font-semibold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent mb-4">

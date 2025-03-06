@@ -14,9 +14,9 @@ export function CTASection() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className="container mx-auto px-4 relative z-10"
+        className="mx-auto max-w-7xl w-full px-4 relative z-10"
       >
-        <div className="max-w-4xl mx-auto text-center bg-card/50 backdrop-blur-sm rounded-3xl p-12 border border-border/10 relative">
+        <div className="max-w-4xl w-full mx-auto text-center bg-card/50 backdrop-blur-sm rounded-3xl p-12 border border-border/10 relative">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
             Transform Your Anomaly Detection Today
           </h2>

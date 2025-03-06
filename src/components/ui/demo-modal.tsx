@@ -7,7 +7,7 @@ import { Textarea } from "./textarea";
 import { Glow } from "./glow";
 import { cn } from "../../lib/utils";
 import { Button } from "./button";
-import { X } from "lucide-react";
+import { Checkbox } from "./checkbox";
 import {
   Dialog,
   DialogContent,
@@ -23,13 +23,22 @@ interface DemoModalProps {
   className?: string;
 }
 
+interface FormState {
+  name: string;
+  email: string;
+  company: string;
+  message: string;
+  consent: boolean;
+}
+
 export function DemoModal({ children, className }: DemoModalProps) {
   const id = useId();
-  const [formState, setFormState] = useState({
+  const [formState, setFormState] = useState<FormState>({
     name: "",
     email: "",
     company: "",
-    message: ""
+    message: "",
+    consent: false
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -40,13 +49,27 @@ export function DemoModal({ children, className }: DemoModalProps) {
     setFormState(prev => ({ ...prev, [name]: value }));
   };
 
+  const handleConsentChange = (checked: boolean) => {
+    setFormState(prev => ({ ...prev, consent: checked }));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formState.consent) {
+      setSubmitError("Please agree to the privacy policy to continue.");
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitError(null);
     
     try {
-      const result = await sendEmail(formState);
+      const result = await sendEmail({
+        name: formState.name,
+        email: formState.email,
+        company: formState.company,
+        message: formState.message
+      });
       
       if (result.success) {
         setIsSuccess(true);
@@ -54,7 +77,8 @@ export function DemoModal({ children, className }: DemoModalProps) {
           name: "",
           email: "",
           company: "",
-          message: ""
+          message: "",
+          consent: false
         });
         
         // Show success message and close modal after a delay
@@ -143,6 +167,23 @@ export function DemoModal({ children, className }: DemoModalProps) {
                 className="min-h-[60px] bg-background/50"
               />
             </div>
+
+            <div className="flex items-start gap-2">
+              <Checkbox 
+                id={`${id}-consent`}
+                checked={formState.consent}
+                onCheckedChange={handleConsentChange}
+                required
+              />
+              <Label htmlFor={`${id}-consent`} className="text-sm text-muted-foreground">
+                I agree to receive communications about Anomaly Detection. 
+                You can unsubscribe at any time. By submitting this form, you agree to our{" "}
+                <a href="/privacy" className="text-white hover:text-white/90 underline">
+                  privacy policy
+                </a>
+                .
+              </Label>
+            </div>
           </div>
           
           {submitError && (
@@ -161,7 +202,7 @@ export function DemoModal({ children, className }: DemoModalProps) {
             <Button 
               type="submit" 
               className="w-full text-sm py-2"
-              disabled={isSubmitting}
+              disabled={isSubmitting || !formState.consent}
             >
               {isSubmitting ? "Sending..." : "Request Demo"}
             </Button>

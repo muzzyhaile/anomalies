@@ -38,7 +38,7 @@ const pricingPlans = [
       "Industry-specific tier"
     ],
     description: "For large organizations with specific needs",
-    buttonText: "Contact for Details",
+    buttonText: "Contact Us",
     href: "#",
     isPopular: false,
   }

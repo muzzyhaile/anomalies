@@ -41,7 +41,7 @@ const features = [
 export function FeaturesSection() {
   return (
     <section id="features" className="bg-background py-20">
-      <div className="container mx-auto px-4">
+      <div className="mx-auto max-w-7xl w-full px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
             Unsupervised Anomaly Detection
@@ -51,7 +51,7 @@ export function FeaturesSection() {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
           {features.map((feature, index) => (
             <Card 
               key={index}
