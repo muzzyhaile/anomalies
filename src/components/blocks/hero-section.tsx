@@ -136,7 +136,7 @@ export function HeroSection({
                     controls
                     playsInline
                   >
-                    <source src="/src/Documents/Anomaly Detection.mp4" type="video/mp4" />
+                    <source src="/Anomaly Detection.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </div>

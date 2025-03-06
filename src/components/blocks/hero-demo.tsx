@@ -23,8 +23,8 @@ export function HeroSectionDemo() {
         }
       ]}
       image={{
-        light: "/src/Documents/Anomaly Detection.mp4",
-        dark: "/src/Documents/Anomaly Detection.mp4",
+        light: "/Anomaly Detection.mp4",
+        dark: "/Anomaly Detection.mp4",
         alt: "Anomaly Detection Demo",
       }}
     />
