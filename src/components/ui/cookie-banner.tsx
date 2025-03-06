@@ -71,7 +71,7 @@ export function CookieBanner() {
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: 100, opacity: 0 }}
-      className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-background/95 dark:bg-background border-t border-border shadow-lg"
+      className="fixed bottom-0 left-0 right-0 z-[9999] p-4 bg-background/95 dark:bg-background border-t border-border shadow-lg"
     >
       <div className="container max-w-4xl mx-auto">
         <div className="flex flex-col gap-4">
@@ -130,11 +130,11 @@ export function CookieBanner() {
               </div>
             )}
             <div className="flex items-center gap-2 mt-2">
-              <Button variant="link" className="px-0 text-primary" onClick={() => window.location.href = '/privacy'}>
+              <Button variant="link" className="px-0 text-white hover:text-white/90" onClick={() => window.location.href = '/privacy'}>
                 Privacy Policy
               </Button>
               <span className="text-muted-foreground">•</span>
-              <Button variant="link" className="px-0 text-primary" onClick={() => setShowDetails(!showDetails)}>
+              <Button variant="link" className="px-0 text-white hover:text-white/90" onClick={() => setShowDetails(!showDetails)}>
                 {showDetails ? 'Hide Details' : 'Customize Settings'}
               </Button>
             </div>
