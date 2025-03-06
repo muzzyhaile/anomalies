@@ -2,10 +2,10 @@
 
 import * as React from "react";
 import { useEffect } from "react";
-import { Button } from "./button";
+import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Checkbox } from "./checkbox";
-import { Label } from "./label";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 
 interface CookieSettings {
   necessary: boolean;
