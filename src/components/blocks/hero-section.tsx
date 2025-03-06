@@ -123,29 +123,36 @@ export function HeroSection({
 
           {/* Image with Glow */}
           <div className="relative pt-12">
-            <MockupFrame
-              className="animate-appear opacity-0 delay-700"
-              size="small"
-            >
-              <Mockup type="responsive">
-                <div className="relative z-20">
-                  <video
-                    ref={videoRef}
-                    className="w-full h-full object-cover"
-                    loop
-                    controls
-                    playsInline
-                  >
-                    <source src="/Anomaly Detection.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-              </Mockup>
-            </MockupFrame>
-            <Glow
-              variant="top"
-              className="animate-appear-zoom opacity-0 delay-1000"
-            />
+            {/* Video container with higher z-index */}
+            <div className="relative z-30">
+              <MockupFrame
+                className="animate-appear opacity-0 delay-700 relative"
+                size="small"
+              >
+                <Mockup type="responsive">
+                  <div className="relative">
+                    <video
+                      ref={videoRef}
+                      className="w-full h-full object-cover"
+                      loop
+                      controls
+                      playsInline
+                    >
+                      <source src="/Anomaly Detection.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </Mockup>
+              </MockupFrame>
+            </div>
+            
+            {/* Glow with lower z-index and reduced opacity on mobile */}
+            <div className="absolute inset-0 z-20 pointer-events-none">
+              <Glow
+                variant="top"
+                className="animate-appear-zoom opacity-0 sm:opacity-0 delay-1000 pointer-events-none"
+              />
+            </div>
           </div>
         </div>
       </div>
