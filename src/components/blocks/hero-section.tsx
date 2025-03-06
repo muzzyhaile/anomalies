@@ -43,7 +43,7 @@ export function HeroSection({
   image,
 }: HeroProps) {
   const { resolvedTheme } = useTheme();
-  const imageSrc = resolvedTheme === "light" ? image.light : image.dark;
+  // Removed unused image logic since we're using video
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -59,10 +59,10 @@ export function HeroSection({
   };
 
   return (
-    <section
-      className="bg-background text-foreground py-12 sm:py-24 md:py-32 px-4"
+  <section
+      className="bg-background text-foreground py-12 sm:py-24 md:py-32 w-full"
     >
-      <div className="mx-auto flex max-w-container flex-col gap-12 pt-16 sm:gap-24">
+      <div className="mx-auto flex flex-col gap-12 pt-16 sm:gap-24 px-4 sm:px-6 max-w-7xl">
         <div className="flex flex-col items-center gap-6 text-center sm:gap-12">
           {/* Badge */}
           {badge && (
@@ -76,12 +76,12 @@ export function HeroSection({
           )}
 
           {/* Title */}
-          <h1 className="relative z-10 inline-block bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-4xl font-semibold leading-tight text-transparent drop-shadow-2xl sm:text-6xl sm:leading-tight md:text-8xl md:leading-tight">
+          <h1 className="relative z-10 inline-block bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-4xl font-semibold leading-tight text-transparent sm:text-6xl sm:leading-tight md:text-8xl md:leading-tight max-w-full break-words">
             {title}
           </h1>
 
           {/* Description */}
-          <p className="text-md relative z-10 max-w-[550px] font-medium text-muted-foreground sm:text-xl">
+          <p className="text-md relative z-10 max-w-full md:max-w-[550px] font-medium text-muted-foreground sm:text-xl px-4 sm:px-0">
             {description}
           </p>
 
@@ -117,13 +117,13 @@ export function HeroSection({
           </div>
 
           {/* Video Section - Simple and Direct */}
-          <div className="relative pt-12 z-50">
+          <div className="relative pt-12 z-50 px-4 sm:px-0">
             {/* Mobile video container */}
-            <div className="block sm:hidden w-full max-w-[600px] mx-auto">
+            <div className="block sm:hidden max-w-[100vw] mx-auto">
               <div className="rounded-lg overflow-hidden">
                 <video
                   ref={videoRef}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover max-w-full"
                   loop
                   controls
                   playsInline
@@ -136,7 +136,7 @@ export function HeroSection({
             </div>
             
             {/* Desktop version */}
-            <div className="hidden sm:block max-w-[800px] mx-auto">
+            <div className="hidden sm:block max-w-[800px] w-full mx-auto">
               <div className="rounded-lg overflow-hidden">
                 <video
                   className="w-full h-full object-cover"
