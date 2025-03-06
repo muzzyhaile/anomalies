@@ -1,69 +1,50 @@
-# Welcome to your Lovable project
+# Anomaly Detection Landing Page
 
-## Project info
+A modern, responsive landing page for an anomaly detection platform built with React, TypeScript, and Tailwind CSS.
 
-**URL**: https://lovable.dev/projects/a854f707-652e-431f-97b0-711c958e3943
+## Features
 
-## How can I edit this code?
+- **Modern UI Design**: Clean, professional interface with gradient text, glass morphism effects, and responsive layout
+- **Interactive Components**: Modal dialogs, animated tooltips, and interactive buttons
+- **Responsive Layout**: Fully responsive design that works on all device sizes
+- **Dark Mode Support**: Elegant dark mode design for better user experience
+- **Performance Optimized**: Fast loading and smooth animations
 
-There are several ways of editing your application.
+## Pages
 
-**Use Lovable**
+- **Home**: Main landing page with hero section, features, team members, and call-to-action
+- **Blog**: Sample blog post about anomaly detection with related content
+- **Legal & Privacy**: Standard legal and privacy policy pages
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a854f707-652e-431f-97b0-711c958e3943) and start prompting.
+## Technical Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+- **React**: Frontend library for building user interfaces
+- **TypeScript**: Type-safe JavaScript for better developer experience
+- **Tailwind CSS**: Utility-first CSS framework for rapid UI development
+- **Vite**: Next-generation frontend tooling for fast development
+- **Radix UI**: Unstyled, accessible components for building high-quality design systems
+- **Framer Motion**: Animation library for React
 
-**Use your preferred IDE**
+## Getting Started
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+1. Clone the repository
+2. Install dependencies with `npm install`
+3. Start the development server with `npm run dev`
+4. Build for production with `npm run build`
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Demo
 
-Follow these steps:
+The site features a "Book a Demo" functionality that allows potential customers to request a demonstration of the anomaly detection platform. The form collects:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- Full Name
+- Company
+- Email
+- Additional information about their use case
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## Customization
 
-# Step 3: Install the necessary dependencies.
-npm i
+The site can be easily customized by modifying the components in the `src/components` directory. The UI components are located in `src/components/ui` and can be reused throughout the application.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## License
 
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/a854f707-652e-431f-97b0-711c958e3943) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+MIT
