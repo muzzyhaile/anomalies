@@ -18,12 +18,17 @@ exports.handler = async function(event, context) {
       `
     };
 
+    console.log('Sending email with payload:', JSON.stringify(emailPayload));
+
+    const apiKey = process.env.RESEND_API_KEY.trim();
     const response = await axios.post('https://api.resend.com/emails', emailPayload, {
       headers: {
-        'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+        'Authorization': `Bearer ${apiKey}`,
         'Content-Type': 'application/json'
       }
     });
+
+    console.log('Resend API response:', response.data);
 
     return {
       statusCode: 200,
