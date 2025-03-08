@@ -100,8 +100,10 @@ export function DemoModal({ children, className }: DemoModalProps) {
 
   return (
     <Dialog>
-      <DialogTrigger className={cn("cursor-pointer", className)}>
-        {children}
+      <DialogTrigger asChild>
+        <div className={cn("cursor-pointer", className)}>
+          {children}
+        </div>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] overflow-hidden">
         <DialogHeader>
