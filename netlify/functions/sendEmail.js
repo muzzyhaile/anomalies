@@ -1,36 +1,42 @@
-const fetch = require('node-fetch');
+const axios = require('axios');
 
-exports.handler = async (event) => {
+exports.handler = async function(event, context) {
   try {
-    const { name, email, company, message } = JSON.parse(event.body);
+    const formData = JSON.parse(event.body);
 
-    const response = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
+    const emailPayload = {
+      from: 'Anomaly Detection <notifications@anomalydetection.app>',
+      to: ['haile.mussie@googlemail.com'],
+      reply_to: formData.email,
+      subject: `New contact from ${formData.name}`,
+      html: `
+        <h1>New Contact Form Submission</h1>
+        <p><strong>Name:</strong> ${formData.name}</p>
+        <p><strong>Email:</strong> ${formData.email}</p>
+        <p><strong>Company:</strong> ${formData.company}</p>
+        <p><strong>Message:</strong> ${formData.message}</p>
+      `
+    };
+
+    const response = await axios.post('https://api.resend.com/emails', emailPayload, {
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.VITE_RESEND_API_KEY}`,
-      },
-      body: JSON.stringify({
-        from: 'onboarding@resend.dev',
-        to: 'admin@guidingventures.com',
-        subject: 'New Demo Request',
-        html: `<p>Name: ${name}</p><p>Email: ${email}</p><p>Company: ${company || 'N/A'}</p><p>Message: ${message || 'N/A'}</p>`,
-      }),
+        'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json'
+      }
     });
-
-    if (!response.ok) {
-      const error = await response.text();
-      throw new Error(error);
-    }
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ success: true }),
+      body: JSON.stringify({ success: true, message: "Email sent successfully" })
     };
   } catch (error) {
+    console.error('Netlify function error:', error.response?.data || error.message);
     return {
       statusCode: 500,
-      body: JSON.stringify({ success: false, error: error.message }),
+      body: JSON.stringify({ 
+        success: false, 
+        error: error.response?.data || error.message 
+      })
     };
   }
 };
