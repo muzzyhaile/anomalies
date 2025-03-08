@@ -19,17 +19,15 @@ interface EmailData {
  */
 export async function sendEmail(data: EmailData): Promise<{ success: boolean; error?: string }> {
   try {
-    const response = await fetch('https://anomalydetection.app/api/send-email', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
+    const response = await resend.emails.send({
+      from: 'onboarding@resend.dev',
+      to: 'admin@guidingventures.com',
+      subject: 'New Demo Request',
+      html: `<p>Name: ${data.name}</p><p>Email: ${data.email}</p><p>Company: ${data.company || 'N/A'}</p><p>Message: ${data.message || 'N/A'}</p>`,
     });
 
-    if (!response.ok) {
-      const text = await response.text();
-      throw new Error(text || 'Failed to send email');
+    if (!response.data) {
+      throw new Error(response.error?.message || 'Failed to send email');
     }
 
     return { success: true };
