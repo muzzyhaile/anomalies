@@ -19,23 +19,17 @@ interface EmailData {
  */
 export async function sendEmail(data: EmailData): Promise<{ success: boolean; error?: string }> {
   try {
-    const { name, email, company, message } = data;
-
-    const { data: resendData, error } = await resend.emails.send({
-      from: 'Anomaly Detection <noreply@anomalydetection.app>',
-      to: ['admin@guidingventures.com'],
-      subject: `New Demo Request from ${name}`,
-      html: `
-        <h1>New Demo Request</h1>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        ${company ? `<p><strong>Company:</strong> ${company}</p>` : ''}
-        ${message ? `<p><strong>Message:</strong> ${message}</p>` : ''}
-      `,
+    const response = await fetch('/api/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
     });
 
-    if (error) {
-      throw error;
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error || 'Failed to send email');
     }
 
     return { success: true };
