@@ -24,7 +24,10 @@ export async function sendEmail(data: EmailData): Promise<{ success: boolean; er
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({
+        ...data,
+        from: 'Your Name <your-name@anomalydetection.app>',
+      }),
     });
 
     if (!response.ok) {
