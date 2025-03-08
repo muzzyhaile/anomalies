@@ -55,8 +55,8 @@ const Blog = () => {
 
               <div className="relative mb-8 rounded-xl overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop&auto=format" 
-                  alt="Industrial machinery with digital overlay" 
+                  src="/anomalydetection.png" 
+                  alt="Anomaly Detection visualization" 
                   className="w-full h-64 object-cover"
                 />
                 <Glow variant="bottom" className="opacity-60" />
