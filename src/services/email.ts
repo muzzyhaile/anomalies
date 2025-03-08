@@ -21,20 +21,17 @@ export async function sendEmail(data: EmailData): Promise<{ success: boolean; er
   try {
     console.log('Sending email with payload:', JSON.stringify(data));
 
-    const response = await fetch('https://api.resend.com/emails', {
+    const response = await fetch('/.netlify/functions/sendEmail', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        ...data,
-        from: 'Anomaly Detection <noreply@anomalydetection.app>',
-      }),
+      body: JSON.stringify(data),
     });
 
     if (!response.ok) {
       const errorResponse = await response.json();
-      console.error('Resend API error:', errorResponse);
+      console.error('Email sending error:', errorResponse);
       throw new Error(JSON.stringify(errorResponse));
     }
 
