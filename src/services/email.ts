@@ -1,9 +1,8 @@
 // Email service for sending form data to admin@guidingventures.com
 // In a production environment, this would use a real email service like Resend
+// Email sending is now handled by the Netlify function
 
 import { Resend } from 'resend';
-
-const resend = new Resend(import.meta.env.VITE_RESEND_API_KEY);
 
 interface EmailData {
   name: string;
