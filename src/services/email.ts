@@ -19,8 +19,6 @@ interface EmailData {
  */
 export async function sendEmail(data: EmailData): Promise<{ success: boolean; error?: string }> {
   try {
-    console.log('Sending email with payload:', JSON.stringify(data));
-
     const response = await fetch('/.netlify/functions/sendEmail', {
       method: 'POST',
       headers: {
@@ -31,16 +29,11 @@ export async function sendEmail(data: EmailData): Promise<{ success: boolean; er
 
     if (!response.ok) {
       const errorResponse = await response.json();
-      console.error('Email sending error:', errorResponse);
-      throw new Error(JSON.stringify(errorResponse));
+      throw new Error(errorResponse.error || 'Failed to send email');
     }
 
     return { success: true };
   } catch (error) {
-    console.error('Error sending email:', error);
-    return { 
-      success: false, 
-      error: error instanceof Error ? error.message : 'Unknown error occurred' 
-    };
+    return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
   }
 }
